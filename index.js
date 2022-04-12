@@ -1,14 +1,7 @@
 const main = document.querySelector("main");
 const spinner = document.querySelector(".spinner")
 
-/*function addDriverImage(driver) {
-    const name = `${driver.name[0].toUpperCase()}${driver.name.slice(1)}`;
-    const div =document.createElement("div")
-    div.innerHTML = `
-    <figure>
-        <img src="${driver}"
-    `
-}*/
+
 
 const url = "http://ergast.com/api/f1/current/drivers.json"
 fetch(url)
@@ -21,7 +14,16 @@ fetch(url)
                 name: `${driver.givenName} ${driver.familyName}`,
                 url: driver.url
             }
+        }).map(driver => {
+            const $driver = document.createElement("div");
+            $driver.innerHTML =`
+                <p><a href="${driver.url}">${driver.name}</a></p>
+            `
+            return $driver
+        }).forEach($driver => {
+            main.append($driver)
         })
+        
 
 
         console.log(drivers)
