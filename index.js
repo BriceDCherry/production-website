@@ -1,6 +1,4 @@
 const main = document.querySelector("main");
-const spinner = document.querySelector(".spinner")
-
 
 
 const url = "http://ergast.com/api/f1/current/drivers.json"
