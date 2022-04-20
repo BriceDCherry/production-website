@@ -8,7 +8,6 @@ fetch(url)
     .then(response => {
         return response.json()
     }).then(parsedResponse => {
-
         const drivers = parsedResponse.MRData.DriverTable.Drivers.map(driver => {
             return {
                 name: `${driver.givenName} ${driver.familyName}`,
