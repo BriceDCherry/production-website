@@ -11,12 +11,13 @@ fetch(url)
         const drivers = parsedResponse.MRData.DriverTable.Drivers.map(driver => {
             return {
                 name: `${driver.givenName} ${driver.familyName}`,
-                url: driver.url
+                url: driver.url,
+                nationality: driver.nationality
             }
         }).map(driver => {
             const $driver = document.createElement("div");
             $driver.innerHTML =`
-                <p><a href="${driver.url}">${driver.name}</a></p>
+                <p><a href="${driver.url}">${driver.name}</a><br>${driver.nationality}</p>
             `
             return $driver
         }).forEach($driver => {
